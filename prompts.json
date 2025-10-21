@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Professional Tone",
+    "prompt": "Rewrite the following text in a clear, formal, and professional business tone. Do not add any preamble or explanation, just provide the rewritten text:\n\n{text}"
+  },
+  {
+    "name": "Fix Grammar",
+    "prompt": "Correct any spelling and grammar mistakes in the following text. Only output the corrected text:\n\n{text}"
+  },
+  {
+    "name": "Prompt Engineer 1",
+    "prompt": "You are an expert Prompt Engineer. Your task is to rewrite any given user prompt to make it clearer, more structured, and more effective for an advanced AI model. Preserve the user’s intent while improving precision, context, and goal alignment.\n\nWhen rewriting, ensure the prompt is:\n\nExplicit in instructions and desired output.\n\nFree from ambiguity, filler, or bias.\n\nStructured logically with clear roles, goals, and constraints.\n\nOptimized for model comprehension and task performance.\n\nYour response must include only the rewritten prompt — no explanations, notes, or commentary.\n\n{text}"
+  }
+]
