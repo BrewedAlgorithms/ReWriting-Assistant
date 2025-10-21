@@ -165,57 +165,30 @@ class ManagementWindow(ctk.CTkToplevel):
     def __init__(self, master: ctk.CTk):
         super().__init__(master)
         self.title("Settings")
-        
-        # Calculate safe window size based on screen
-        screen_height = self.winfo_screenheight()
-        safe_height = min(600, int(screen_height * 0.8))  # Max 80% of screen height
-        self.geometry(f"680x{safe_height}")
-        self.resizable(True, True)  # Allow resizing for better UX
-        self.minsize(600, 400)  # Set minimum size
-        
+
+        # Open maximized
+        try:
+            self.state('zoomed')
+        except Exception:
+            w, h = self.winfo_screenwidth(), self.winfo_screenheight()
+            self.geometry(f"{w}x{h}+0+0")
+            
+        self.resizable(True, True)
+        self.minsize(800, 600)
+
         # Modern styling
         self.configure(fg_color=("#0f0f0f", "#0f0f0f"))
-        
-        # Center on screen
-        self.after(10, self._center_on_screen)
-        
+
         self.config_data = load_config()
         self.prompts = load_prompts()
 
         self._build_ui()
-        
-        # Force window to update and center again after UI is built
-        self.update()
-        self.after(50, self._center_on_screen)
-        
+
         # Ensure window appears on top
         self.lift()
         self.focus_force()
         
         self.grab_set()
-
-    def _center_on_screen(self):
-        """Center this window on screen."""
-        self.update_idletasks()
-        
-        # Get actual window dimensions
-        window_width = self.winfo_width()
-        window_height = self.winfo_height()
-        
-        # Get screen dimensions
-        screen_w = self.winfo_screenwidth()
-        screen_h = self.winfo_screenheight()
-        
-        # Calculate center position
-        x = (screen_w - window_width) // 2
-        y = (screen_h - window_height) // 2
-        
-        # Ensure window stays within screen bounds
-        x = max(0, x)
-        y = max(0, y)
-        
-        # Apply position
-        self.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
     def _build_ui(self) -> None:
         # Main container with transparent background

@@ -1,0 +1,6 @@
+customtkinter
+pynput
+pyperclip
+requests
+pyinstaller
+Pillow
