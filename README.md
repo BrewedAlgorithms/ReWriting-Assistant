@@ -54,6 +54,16 @@ The application will run in the background, listening for the hotkey.
     -   Or, type `/` to select from a list of pre-configured quick prompts.
 4.  The rewritten text will automatically replace your selection.
 
+### Building from Source
+
+To compile the application into a standalone Windows executable and create an installer, run the `compile.bat` script. This requires [Inno Setup 6](https://jrsoftware.org/isinfo.php) to be installed.
+
+```bash
+./compile.bat
+```
+
+The final installer will be located in the `Output/` directory.
+
 ## Architecture (Brief)
 
 This application is a single-file Python script using `customtkinter` for the GUI, `pynput` for global hotkey management, and the `requests` library to interact with the OpenRouter API.
